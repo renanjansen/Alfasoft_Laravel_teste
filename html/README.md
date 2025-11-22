@@ -1,66 +1,138 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# ?? Alfasoft Contacts - Sistema de Gestão de Contactos
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![Laravel](https://img.shields.io/badge/Laravel-10.x-FF2D20?style=for-the-badge&logo=laravel)
+![PHP](https://img.shields.io/badge/PHP-8.1+-777BB4?style=for-the-badge&logo=php)
+![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql)
+![Tailwind](https://img.shields.io/badge/Tailwind-CSS-38B2AC?style=for-the-badge&logo=tailwind-css)
 
-## About Laravel
+## ?? Índice
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- [?? Visão Geral](#-visão-geral)
+- [? Funcionalidades](#-funcionalidades)
+- [??? Stack Tecnológica](#?-stack-tecnológica)
+- [?? Instalação e Configuração](#-instalação-e-configuração)
+- [??? Estrutura do Projeto](#?-estrutura-do-projeto)
+- [?? Autenticação](#-autenticação)
+- [?? API's Integradas](#-apis-integradas)
+- [?? Testes](#-testes)
+- [?? Estatísticas e Métricas](#-estatísticas-e-métricas)
+- [?? Comandos Artisan](#-comandos-artisan)
+- [?? Troubleshooting](#-troubleshooting)
+- [?? Contribuição](#-contribuição)
+- [?? Licença](#-licença)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ?? Visão Geral
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Sistema completo de gestão de contactos desenvolvido em Laravel 10, seguindo as melhores práticas de desenvolvimento e arquitetura MVC. A aplicação permite gerir pessoas e seus contactos telefónicos com integração de APIs externas para enriquecimento de dados.
 
-## Learning Laravel
+## ? Funcionalidades
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### ?? Core Features
+- **?? Gestão de Pessoas** - CRUD completo com validações avançadas
+- **?? Gestão de Contactos** - Associação múltipla de contactos por pessoa
+- **?? Sistema de Autenticação** - Controle de acesso granular
+- **??? Soft Deletes** - Eliminação segura com possibilidade de recuperação
+- **?? Internacionalização** - Suporte a códigos de país internacionais
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### ?? Features Avançadas
+- **?? Avatares Automáticos** - Geração via API de monstros aleatórios
+- **?? Dashboard Estatístico** - Métricas e analytics de utilização
+- **?? Validações Complexas** - Unicidade composta e regras customizadas
+- **? Performance** - Cache estratégico e eager loading
+- **?? UX/UI** - Interface responsiva com Tailwind CSS
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## ??? Stack Tecnológica
 
-## Laravel Sponsors
+### Backend
+- **Laravel 10.x** - Framework PHP
+- **PHP 8.1+** - Linguagem de programação
+- **MySQL 8.0** - Base de dados
+- **Eloquent ORM** - Mapeamento objeto-relacional
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Frontend
+- **Tailwind CSS** - Framework CSS utility-first
+- **Font Awesome 6** - Ícones
+- **JavaScript Vanilla** - Interatividade cliente
 
-### Premium Partners
+### APIs Externas
+- **REST Countries API** - Dados de países e códigos
+- **Pixel Encounter API** - Geração de avatares
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## ?? Instalação e Configuração
 
-## Contributing
+### Pré-requisitos
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+PHP >= 8.1
+Composer >= 2.0
+MySQL >= 8.0
+Node.js
 
-## Code of Conduct
+### 1. Clone o Repositório
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+git clone https://github.com/renanjansen/Alfasoft_Laravel_teste.git
+cd Alfasoft_Laravel_teste/html
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### ??? Estrutura do Projeto
 
-## License
+app/
+??? Console/
+??? Exceptions/
+??? Http/
+?   ??? Controllers/
+?   ?   ??? AuthController.php
+?   ?   ??? PersonController.php
+?   ?   ??? ContactController.php
+?   ?   ??? StatsController.php
+?   ??? Middleware/
+?   ??? Requests/
+?       ??? StorePersonRequest.php
+?       ??? UpdatePersonRequest.php
+?       ??? StoreContactRequest.php
+?       ??? UpdateContactRequest.php
+??? Models/
+?   ??? Person.php
+?   ??? Contact.php
+??? Services/
+    ??? CountryService.php
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+database/
+??? migrations/
+?   ??? xxxx_create_people_table.php
+?   ??? xxxx_create_contacts_table.php
+?   ??? xxxx_create_users_table.php
+??? seeders/
+
+resources/
+??? views/
+    ??? layouts/
+    ?   ??? app.blade.php
+    ??? people/
+    ?   ??? index.blade.php
+    ?   ??? create.blade.php
+    ?   ??? edit.blade.php
+    ?   ??? show.blade.php
+    ??? contacts/
+    ?   ??? create.blade.php
+    ?   ??? edit.blade.php
+    ?   ??? show.blade.php
+    ??? auth/
+    ?   ??? login.blade.php
+    ??? stats/
+        ??? contacts-by-country.blade.php
+
+### ?? Autenticação
+
+Email: admin@alfasoft.pt
+Password: password123
+
+
+### ?? Licença
+Este projeto é desenvolvido para fins de avaliação técnica. Todos os direitos reservados.
+
+### ????? Desenvolvido por
+Renan Jansen
+https://img.shields.io/badge/GitHub-renanjansen-181717?style=flat-square&logo=github
+
+Sistema desenvolvido como parte do processo de avaliação técnica para posição de PHP/Laravel Developer
+
