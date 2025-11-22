@@ -27,7 +27,7 @@ class AuthController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'As credenciais fornecidas n„o correspondem aos nossos registos.',
+            'email' => 'As credenciais fornecidas n√£o correspondem aos nossos registos.',
         ])->onlyInput('email');
     }
 
@@ -41,15 +41,15 @@ class AuthController extends Controller
 
     public function createStaticUser()
     {
-        // Verificar se o usu·rio j· existe
+        // Verificar se o usu√°rio j√° existe
         if (!User::where('email', 'admin@alfasoft.pt')->exists()) {
             User::create([
                 'name' => 'admin',
                 'email' => 'admin@alfasoft.pt',
                 'password' => Hash::make('password123'),
             ]);
-            return "Usu·rio criado: admin@alfasoft.pt / password123";
+            return "Usu√°rio criado: admin@alfasoft.pt / password123";
         }
-        return "Usu·rio j· existe";
+        return "Usu√°rio j√° existe";
     }
 }
