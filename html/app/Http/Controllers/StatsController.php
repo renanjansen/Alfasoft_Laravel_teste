@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use App\Services\CountryService;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cache;
 
 class StatsController extends Controller
 {
@@ -17,7 +18,8 @@ class StatsController extends Controller
 
     public function contactsByCountry()
     {
-        $stats = Contact::select('country_code', DB::raw('COUNT(*) as total'))
+        $stats = Contact::whereNull('deleted_at')
+            ->select('country_code', DB::raw('COUNT(*) as total'))
             ->groupBy('country_code')
             ->orderBy('total', 'DESC')
             ->get();
@@ -40,33 +42,10 @@ class StatsController extends Controller
         ]);
     }
 
-    public function contactsByCountryWithAllCountries()
+    public function contactsByCountryRefresh()
     {
-        $allCountries = $this->countryService->getCountriesForDropdown();
+        Cache::forget('countries');
 
-        $stats = Contact::select('country_code', DB::raw('COUNT(*) as total'))
-            ->groupBy('country_code')
-            ->get()
-            ->keyBy('country_code');
-
-        $combinedStats = $allCountries->map(function ($country) use ($stats) {
-            $countryStat = $stats->get($country['code']);
-
-            return [
-                'country_code' => $country['code'],
-                'country_name' => $country['name'],
-                'total' => $countryStat ? $countryStat->total : 0,
-                'display' => $country['display'],
-                'has_contacts' => (bool) $countryStat
-            ];
-        })->filter(function ($stat) {
-            return $stat['total'] > 0;
-        })->sortByDesc('total');
-
-        return view('stats.contacts-by-country', [
-            'stats' => $combinedStats,
-            'totalContacts' => $combinedStats->sum('total'),
-            'uniqueCountries' => $combinedStats->count()
-        ]);
+        return $this->contactsByCountry();
     }
 }
