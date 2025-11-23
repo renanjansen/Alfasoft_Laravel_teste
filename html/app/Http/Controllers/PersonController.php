@@ -73,12 +73,16 @@ class PersonController extends Controller
     public function destroy(Person $person)
     {
         try {
-            $person->delete();
+            $person->contacts()->forceDelete();
+
+            $person->forceDelete();
+
             return redirect()->route('people.index')
-                ->with('success', 'Pessoa eliminada com sucesso!');
+                ->with('success', 'Pessoa e todos os seus contactos foram eliminados com sucesso!');
         } catch (\Exception $e) {
+            Log::error('Erro ao eliminar pessoa: ' . $e->getMessage());
             return redirect()->back()
-                ->with('error', 'Erro ao eliminar pessoa: ' . $e->getMessage());
+                ->with('error', 'Erro ao eliminar pessoa. Por favor, tente novamente.');
         }
     }
 
